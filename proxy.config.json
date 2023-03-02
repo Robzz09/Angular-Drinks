@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://tst-nexmeterup.cloud.apeironlab.tech",
+    "secure": true,
+    "changeOrigin": true
+  }
+}

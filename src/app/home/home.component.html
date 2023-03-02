@@ -1,0 +1,26 @@
+<div class="p-4">
+<h1>{{ title }}</h1>
+<a [routerLink]="['/login']">Go to login</a>
+<br />
+<a [routerLink]="['/pippo']">Do you want pipping :) ?</a>
+</div>
+<div class="row row-cols-3">
+  <!-- <div class="col" style="height: 10rem;" *ngFor="let meter of meters"> -->
+  <app-meter-badge
+    class="col p-4"
+    style="width: 10rem"
+    [disabled]="true"
+    [meter]="select"
+    (onDelete)="onDeleteMeter($event)"
+  ></app-meter-badge>
+</div>
+<div class="row row-cols-3">
+  <app-meter-list
+    class="col p-4"
+    style="width: 14rem"
+    *ngFor="let meter of meters"
+    [meter]="meter"
+    (onSelect)="onSelectMeter($event)"
+  ></app-meter-list>
+</div>
+<!-- </div> -->
