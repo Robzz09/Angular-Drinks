@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ApiService} from "../_service/api.service";
-import {Meter} from "../_model/meter.model";
+import {Drink} from "../_model/drink.model";
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -11,33 +11,30 @@ import { ActivatedRoute } from '@angular/router';
   */
 })
 export class HomeComponent implements OnInit {
-  title = 'Home';
-  meters: Meter[] = [];
-  select!: Meter;
+  drinks: any[] = [];
+  letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  firstLetter = '';
+  @Input() cocktail!: string;
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.activatedRoute.data.subscribe(({meters})=>{
-      this.meters = meters
-    })}
-
-    onDeleteMeter(meterId: number){
-      
-    }
-    onSelectMeter(meter: Meter){
-      this.select = meter;
-    }
-
-  getMeters() {
-    this.apiService.getMeterList().subscribe(meters => {
-    this.meters = meters;
-    })
+    this.changeFirstLetter('A');
   }
-
-  getMeterId() {
-    this.apiService.getMeterList().subscribe(meters => {
-      this.meters = meters;
+  changeFirstLetter(letter: string) {
+    this.firstLetter = letter;
+    this.apiService
+      .searchCocktailByFirstLetter(this.firstLetter)
+      .subscribe((response: any) => {
+        this.drinks = response.drinks;
+      });
+  }
+  searchThis(cocktail: any) {
+    console.log(cocktail);
+    this.apiService.getCocktailByName(cocktail)
+      .subscribe( (response: any) => {
+        console.log(response);
+        this.drinks = response.drinks;
     })
   }
 }

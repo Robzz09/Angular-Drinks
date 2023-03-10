@@ -33,10 +33,5 @@ export class AppComponent {
       console.log(p);
     })
   }
-  diminuisci(){
-    this.count--;
-  }
-  aumenta(){
-    this.count++;
-  }
+
 }

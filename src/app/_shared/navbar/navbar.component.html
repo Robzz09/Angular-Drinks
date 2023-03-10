@@ -1,0 +1,11 @@
+<nav class="navbar navbar-expand-lg" style="background-color: grey;">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="#">Home</a>
+        <form class="d-flex" role="search" [formGroup]="form">
+          <input formControlName="nome" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="bg-primary btn btn-outline-light" (click)="searchThis()" type="button">Search</button>
+        </form>
+      </div>
+  </nav>
+  
+  <!-- <app-drinks-page [drink]="drinks"></app-drinks-page> -->

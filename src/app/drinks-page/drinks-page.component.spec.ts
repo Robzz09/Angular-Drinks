@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PippingComponent } from './pipping.component';
+import { DrinksPageComponent } from './drinks-page.component';
 
-describe('PippingComponent', () => {
-  let component: PippingComponent;
-  let fixture: ComponentFixture<PippingComponent>;
+describe('DrinksPageComponent', () => {
+  let component: DrinksPageComponent;
+  let fixture: ComponentFixture<DrinksPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PippingComponent ]
+      declarations: [ DrinksPageComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PippingComponent);
+    fixture = TestBed.createComponent(DrinksPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

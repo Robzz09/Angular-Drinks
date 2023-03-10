@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../_service/api.service';
-import { Meter } from '../_model/meter.model';
+import { Drink } from '../_model/drink.model';
 import {
   ActivatedRoute,
   ActivatedRouteSnapshot,
@@ -9,20 +9,20 @@ import {
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './meter-detail.component.html',
+  selector: 'app-drink',
+  templateUrl: './drink-detail.component.html',
   /*
     styleUrls: ['./app.component.scss']
   */
 })
-export class MeterDetailComponent implements OnInit {
+export class DrinkDetailComponent implements OnInit {
   title = 'Detail';
-  meter: Partial<Meter> = {}; //l'oggetto meter può contenere le proprità di METER anche in modo parziale utilizzando PARTIAL davanti
+  drink!: Drink;
+  @Input() ingredient: any
   constructor(private apiService: ApiService,private activatedRoute: ActivatedRoute) {}
-
   ngOnInit() {
-    this.activatedRoute.data.subscribe(({meters})=>{
-      this.meter = meters
+    this.activatedRoute.data.subscribe(({drink})=>{
+      this.drink = drink
     },(error)=>{
       console.log(error);
       

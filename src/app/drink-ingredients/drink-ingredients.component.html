@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div class="card-group mt-4">
+    <div class="card text-center bg-dark text-white border-0">
+      <div class="card-body">
+        <h4 class="card-title mb-4">{{ ingredient.strIngredient }}</h4>
+        <div class="col-md-8" style="width: 60%; margin: auto;">
+          <img [src]="'https://www.thecocktaildb.com/images/ingredients/' + ingredient.strIngredient + '.png'" class="img-fluid rounded">
+        </div>
+      </div>
+    </div>
+    <div class="card bg-dark text-white border-0">
+      <div class="card-body">
+        <h4 class="card-title text-center mb-4">Description</h4>
+        <p class="card-text"> {{ ingredient.strDescription }} </p>
+      </div>
+    </div>
+  </div>
+  
+   <h2 class="text-center mt-5 mb-3"> {{drink.length}} cocktails with this ingredient</h2>
+  <!-- <app-drink [drink]="drinks"></app-drink> -->
+  <div class="d-flex justify-content-center row" style="width: 80%" >
+  <div class="card col-2 m-3" *ngFor="let drink of drink">
+  <img [src]="drink.strDrinkThumb" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">{{ drink.strDrink}}</h5>
+    <div class="btn btn-primary" [routerLink]="['/drink/'+drink.idDrink]">Dettaglio</div>
+  </div>
+</div>
+    </div>
+

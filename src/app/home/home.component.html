@@ -1,26 +1,29 @@
-<div class="p-4">
-<h1>{{ title }}</h1>
-<a [routerLink]="['/login']">Go to login</a>
-<br />
-<a [routerLink]="['/pippo']">Do you want pipping :) ?</a>
+<app-navbar (searchcriteria)="searchThis($event)"></app-navbar>
+<div class="ps-3 " style="width: 100%; " >
+<nav class="mt-3 d-flex justify-content-center">
+  <ul class="pagination pagination-sm ">
+    <li class="page-item " role="button"
+      [class.active]="letter === firstLetter"
+      *ngFor="let letter of letters">
+      <a class="page-link" (click)="changeFirstLetter(letter)">
+        {{ letter }}
+      </a>
+    </li>
+  </ul>
+</nav>
+<!-- <h1>First One</h1>
+<div class="justify-content-center" style="width: 15rem;">
+<app-drinks-page class="" [drink]="drinks[0]"></app-drinks-page>
+</div> -->
+<h1 class="text-center">Top Drinks</h1>
+<div class="container">
+<div class="row">
+  <div class="col-sm-12 col-md-4 col-lg-3 my-2" style="width: 15rem;"
+    *ngFor="let drink of drinks">
+    <app-drinks-page
+      [drink]="drink"
+      ></app-drinks-page> 
+  </div>
 </div>
-<div class="row row-cols-3">
-  <!-- <div class="col" style="height: 10rem;" *ngFor="let meter of meters"> -->
-  <app-meter-badge
-    class="col p-4"
-    style="width: 10rem"
-    [disabled]="true"
-    [meter]="select"
-    (onDelete)="onDeleteMeter($event)"
-  ></app-meter-badge>
 </div>
-<div class="row row-cols-3">
-  <app-meter-list
-    class="col p-4"
-    style="width: 14rem"
-    *ngFor="let meter of meters"
-    [meter]="meter"
-    (onSelect)="onSelectMeter($event)"
-  ></app-meter-list>
 </div>
-<!-- </div> -->

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MeterResolver } from './meter.resolver';
+import { DrinkResolver } from './drink.resolver';
 
-describe('MeterResolverResolver', () => {
-  let resolver: MeterResolver;
+describe('DrinkResolver', () => {
+  let resolver: DrinkResolver;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    resolver = TestBed.inject(MeterResolver);
+    resolver = TestBed.inject(DrinkResolver);
   });
 
   it('should be created', () => {
